@@ -1,0 +1,25 @@
+[package]
+name = "online-filtering"
+version = "0.1.0"
+edition = "2021"
+
+[profile.release]
+lto = "fat"
+strip = true
+panic = "abort"
+opt-level = 3
+codegen-units = 1
+
+[dependencies]
+iced = { version = "0.9.0", features = ["tokio"] }
+parking_lot = { version = "0.12.1", features = ["hardware-lock-elision"] }
+plotters = { version = "0.3.5", default-features = false, features = ["line_series"] }
+plotters-iced = "0.8.0"
+pyo3 = { version = "0.19.1", default-features = false }
+serde = { version = "1.0.175", features = ["derive"] }
+serde_derive = "1.0.175"
+serde_json = "1.0.103"
+serialport = "4.2.1"
+tokio = { version = "1.29.1", features = ["rt-multi-thread", "parking_lot"] }
+tracing = "0.1.37"
+tracing-subscriber = { version = "0.3.17", features = ["parking_lot"] }
